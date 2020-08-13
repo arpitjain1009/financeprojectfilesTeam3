@@ -1,0 +1,31 @@
+
+    *{
+      box-sizing: border-box;
+     }
+    #Card
+    {
+        border: 2px black solid;
+        width: 40%;
+        align-items: center;
+    }
+    #CardImg
+    {
+        left: 50%
+    }
+    body{
+        font-size: Large;
+    }
+    #icon{
+        position: absolute;
+        right: 60%;
+    }
+    #status-act{
+        border: 0.5px black solid;
+        background-color:rgba(0, 128, 0, 0.63);
+        widows: 100%;
+    }
+    #status-deact{
+        border: 0.5px black solid;
+        background-color:rgba(255, 0, 0, 0.568);
+        widows: 100%;
+    }

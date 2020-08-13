@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "FinanceProjPer"
+    }
+  },
+  "defaultProject": "FinanceProjPer",
+  "cli": {
+    "analytics": false
+  }
 }

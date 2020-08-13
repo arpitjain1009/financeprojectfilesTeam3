@@ -1,0 +1,72 @@
+<p>dashboard works!</p>
+{{custdata}}
+{{card}}
+<h6>custdata</h6>
+
+<button (click) = 'fetch()'>test</button><br>
+
+<span *ngFor = "let i of card">
+cardNUmber: {{i.CardNmber}} <br>
+Name: {{i.Name}} <br>
+Status: {{i.Satus}} <br>
+Card Limit: {{i.CardTypeMaster.limit}} <br>
+Criedit Used : {{(i.CardTypeMaster.limit)- (i.balence)}} <br>
+Criedit Balanece : {{i.balence}} <br>
+Expiry Data: {{i.ExpiraDate}}
+CardType: {{i.CardTypeMaster.Type}}
+
+</span>
+<br> <br>
+
+<body>
+<br><br><br>
+<h2>DashBoard</h2>
+        <section class="container" style="border:1px solid #cecece;" >
+            <br>
+
+            <span  *ngFor = "let i of card">
+
+            <div id="Card" >
+                <div class="container">
+                <span id="icon">LFi</span> <br>
+                CardNumber:{{i.CardNmber}} <br>
+                Name:{{i.Name}} <br>
+                Valid Till: {{i.ExpiraDate}} <br>
+                CARDTYPE: {{i.CardTypeMaster.Type}}
+                </div>
+                
+            <div id="status-act" *ngIf = "i.Satus == 1" >
+                <span align="Center">ACTIVATED</span>
+            </div>
+            <div id="status-deact" *ngIf = "i.Satus == 0">
+                <span align="Center">DEACTIVATED</span>
+            </div>
+            </div>
+
+            Totoal Crdit: {{i.CardTypeMaster.limit}} <br>
+            Credit Used: {{(i.CardTypeMaster.limit)- (i.balence)}} <br>
+            Remaining Credit:  {{i.balence}}  <br>
+        </span>
+
+            <h5 align="Center">Products Purchased</h5>
+
+            Recent Transaction:<br><br>
+
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>PRODUCT</th>
+                        <th>DATE</th>
+                        <th>AMOUNT PAID</th>
+                    </tr>
+                </thead>
+                <tr>
+                    <td>Test</td>
+                    <td>Test</td>
+                    <td>Test</td>
+                </tr>
+
+            </table>
+
+        </section>
+</body>
