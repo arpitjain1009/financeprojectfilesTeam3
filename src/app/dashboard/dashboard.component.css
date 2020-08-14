@@ -1,12 +1,10 @@
 
-    *{
-      box-sizing: border-box;
-     }
+    
     #Card
     {
         border: 2px black solid;
         width: 40%;
-        align-items: center;
+      
     }
     #CardImg
     {

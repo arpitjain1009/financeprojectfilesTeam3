@@ -3,17 +3,18 @@
 {{card}}
 <h6>custdata</h6>
 
-<button (click) = 'fetch()'>test</button><br>
+<button (click) = 'fetch()'>Fetch Card Details</button><br>
+<button (click) = 'ViewProducts()'>View Products</button><br>
 
 <span *ngFor = "let i of card">
-cardNUmber: {{i.CardNmber}} <br>
+<!-- cardNUmber: {{i.CardNmber}} <br>
 Name: {{i.Name}} <br>
 Status: {{i.Satus}} <br>
 Card Limit: {{i.CardTypeMaster.limit}} <br>
 Criedit Used : {{(i.CardTypeMaster.limit)- (i.balence)}} <br>
 Criedit Balanece : {{i.balence}} <br>
 Expiry Data: {{i.ExpiraDate}}
-CardType: {{i.CardTypeMaster.Type}}
+CardType: {{i.CardTypeMaster.Type}} -->
 
 </span>
 <br> <br>
@@ -21,20 +22,20 @@ CardType: {{i.CardTypeMaster.Type}}
 <body>
 <br><br><br>
 <h2>DashBoard</h2>
-        <section class="container" style="border:1px solid #cecece;" >
+        <section class="container" style="border:1px solid #cecece;"  >
             <br>
 
             <span  *ngFor = "let i of card">
 
-            <div id="Card" >
+            <div id="Card" align="center">
                 <div class="container">
                 <span id="icon">LFi</span> <br>
-                CardNumber:{{i.CardNmber}} <br>
-                Name:{{i.Name}} <br>
-                Valid Till: {{i.ExpiraDate}} <br>
-                CARDTYPE: {{i.CardTypeMaster.Type}}
+                CardNumber:&nbsp;{{i.CardNmber}} <br>
+                Name:&nbsp;{{i.Name}} <br>
+                Valid Till: &nbsp; {{i.ExpiraDate}} <br>
+                CARDTYPE: &nbsp; {{i.CardTypeMaster.Type}}
                 </div>
-                
+
             <div id="status-act" *ngIf = "i.Satus == 1" >
                 <span align="Center">ACTIVATED</span>
             </div>
@@ -43,6 +44,7 @@ CardType: {{i.CardTypeMaster.Type}}
             </div>
             </div>
 
+            <br>
             Totoal Crdit: {{i.CardTypeMaster.limit}} <br>
             Credit Used: {{(i.CardTypeMaster.limit)- (i.balence)}} <br>
             Remaining Credit:  {{i.balence}}  <br>

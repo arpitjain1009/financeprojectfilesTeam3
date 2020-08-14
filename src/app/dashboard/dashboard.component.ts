@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Custservice } from 'src/services/custservices';
 import { Variable } from '@angular/compiler/src/render3/r3_ast';
 
+
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -19,7 +20,6 @@ cust:Variable;
 
   ngOnInit(): void {
     this.cust = this.customerService.customer;
- 
   }
 
   fetch(){
@@ -38,9 +38,14 @@ cust:Variable;
   this.card=   data1; //Carddetails with customerMaster, CardTypeMaster,CardDetails
     console.log(this.card)
   }))
+  }
+  ViewProducts(){
+    this.customerService.products =this.customerService.getProducts();
+    console.log(this.customerService.products);
 
- 
+    this.customerService.products.subscribe((data=>{
+     console.log(data)
+    }))
 
   }
-
 }

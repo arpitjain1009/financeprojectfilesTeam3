@@ -1,0 +1,46 @@
+<p>paymentgateway works!</p>
+<button (click)="showitems()">Item</button>
+<br><br><br><br><br>
+
+<span *ngIf = "read">
+
+<h2> Payement Gateway::</h2>
+    <h3>Customer Info:</h3>
+<div *ngFor = "let i of carddata">
+    Customer Name:{{i.Name}} <br>
+   Card number:{{i.CardNmber}}  <br>
+   CardType:{{i.CardTypeMaster.Type}} <br>
+     Criedit Balence:{{i.balence}}
+    
+    <h3>Product Info:</h3>
+     Product Name: {{itemselect.Name}} <br>
+    Product Cost: {{itemselect.UnitPrice}}<br><br>
+    <br>
+    <!-- {{itemselect|json}} -->
+    <!-- {{carddata|json}} -->
+
+    <h3>Payement :</h3>
+     <div *ngIf = "i.CardTypeMaster.Type=='Platinum'"  >
+         processing Fee:{{(5/100)*(itemselect.UnitPrice)}}  <br> 
+     </div>
+    <div *ngIf = "i.CardTypeMaster.Type=='Gold'" >
+        processing Fee: {{(10/100)*(itemselect.UnitPrice)}} <br>
+    </div>
+
+    NetAmount:{{  ((5/100)*(itemselect.UnitPrice))  +  (itemselect.UnitPrice)*1  }} <br>
+    <hr>
+</div>
+
+Please select the EMI Plan 
+<select [(ngModel)] = "payplan" >
+    <option></option>
+  <option *ngFor = "let p of plans" value="{{p.id}}" >{{p.data}} </option>
+</select> <br> <br>
+
+
+<button (click) = "pay()">Proceed To Pay</button>
+</span>
+
+
+<br><br><br><br><br>
+

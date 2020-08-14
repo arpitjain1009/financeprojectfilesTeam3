@@ -4,7 +4,7 @@ import { Custservice } from 'src/services/custservices';
 
 import {Router} from '@angular/router'
 import {Customer} from 'src/models/customer';
-import { DashboardComponent } from '../dashboard/dashboard.component';
+
 
 @Component({
   selector: 'app-login',
@@ -44,47 +44,7 @@ export class LoginComponent implements OnInit {
         this.custservice.custcard = this.custservice.carddetails(this.cust.id);
         console.log(this.custservice.custcard);
         this.msg = "Loggedin"
-      }
-      
+      } 
     }))
-
-   
-
-    
-
-  // this.custservice.login.subscribe((data=>{
-  //   this.custservice.customer =data;
-  //   console.log(data);
-  // }))
-
-
-
-
-    // if(this.custservice.customer == null){
-    //   alert("invalid Login")
-    // }else{  
-    //    this.custservice.carddetails(this.);
-    //   console.log(this.custservice.customer);
-    //   console.log(this.custservice.custcard)
-    //   //this.routes.navigate(["/app/dashboard"])
-    // }
   }
-
-
-
- 
-
-    // this.custservice.customer =  this.custservice.login(this.Username,this.Password).subscribe((data)=>{
-    //   this.custservice.customer = data; // To use in any component
-    //   if(this.custservice.customer==null){
-    //     alert("Login Invalid");
-    //   }else{
-    //     this.cust= this.custservice.customer;
-    //     // this.custservice.carddetails(this.cust.id).subscribe((data1)=>{
-    //     //   this.card = data1;
-    //     //  data1 = this.custservice.custcard;
-    //     //   this.custservice.custcard = data1;
-    //     // })
-    //   }
-    // })
 }
