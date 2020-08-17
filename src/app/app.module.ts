@@ -4,7 +4,8 @@ import {FormsModule} from '@angular/forms';
 import {RouterModule,Routes} from '@angular/router'
 
 import {HttpClientModule} from '@angular/common/http';
-import {Custservice} from '../services/custservices'
+import {Custservice} from '../services/custservices';
+import {AdminService} from 'src/services/adminService'
 import { AppRoutingModule,routingComponents } from './app-routing.module';
 import { AppComponent } from './app.component';
 
@@ -18,6 +19,8 @@ import { ProductItemComponent } from './shopping-cart/product-list/product-item/
 import { ProductListComponent } from './shopping-cart/product-list/product-list.component';
 
 import { DatePipe } from '@angular/common';
+import { AdmindashboardComponent } from './admindashboard/admindashboard.component';
+import { AdminloginComponent } from './adminlogin/adminlogin.component';
 
 var myRoutes:Routes= [
   {path:"Login",component:LoginComponent,children:[
@@ -38,7 +41,9 @@ var myRoutes:Routes= [
     ShoppingCartComponent,
     PaymentgatewayComponent,
     ProductItemComponent,
-    ProductListComponent
+    ProductListComponent,
+    AdmindashboardComponent,
+    AdminloginComponent
   ],
   imports: [
     BrowserModule,
@@ -47,7 +52,7 @@ var myRoutes:Routes= [
     RouterModule.forRoot(myRoutes),
     FormsModule
   ],
-  providers: [Custservice,DatePipe],
+  providers: [Custservice,DatePipe,AdminService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

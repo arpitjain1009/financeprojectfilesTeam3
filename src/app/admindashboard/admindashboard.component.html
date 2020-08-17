@@ -1,0 +1,113 @@
+<p>admindashboard works!</p>
+<table class="table">
+
+    <tr>
+        <th> Cust Id</th>
+        <th> Cust Name</th>
+        <th> </th>
+        <th> </th>
+    </tr>
+    <ng-container *ngFor = "let i of custData" >
+    <tr>
+        <td> {{i.id}} </td>
+        <td>{{i.FirstName}} &nbsp; {{ i.LastName}} </td>
+        <td> <button (click) = "userdate(i.id)">Fetch User Data & Update</button></td>
+        <td> <button (click) = "usercarddata(i.id)"> Fetch card Data & Update</button> </td>
+    </tr>
+    </ng-container>
+</table>
+
+
+<ng-container *ngIf = "viewspecificCustdata">
+    <table>
+        <tr>
+            <td> Id</td> <td> <input type="text" [(ngModel)] = "specificCustdata.id"  readonly>    </td>
+        </tr>
+        <tr>
+            <td> FirstName</td> <td> <input type="text" [(ngModel)] = "specificCustdata.FirstName" >  </td>
+        </tr>
+        <tr>
+            <td> MiddleName</td> <td> <input type="text"  [(ngModel)] = "specificCustdata.MiddleName"  > </td>
+        </tr>
+        <tr>
+            <td> LastName</td> <td> <input type="text" [(ngModel)] = "specificCustdata.LastName"   > </td>
+        </tr>
+        <tr>
+            <td> Phone</td> <td> <input type="text" [(ngModel)] = "specificCustdata.Phone"   > </td>
+        </tr>
+        <tr>
+            <td> PhoneAlt</td> <td> <input type="text" [(ngModel)] = "specificCustdata.PhoneAlt "   > </td>
+        </tr>
+        <tr>
+            <td> Email</td> <td> <input type="text" [(ngModel)] = "specificCustdata.Email"   > </td>
+        </tr>
+        <tr>
+            <td> UserName</td> <td> <input type="text" [(ngModel)] = "specificCustdata.UserName"   > </td>
+        </tr>
+        <tr>
+            <td> Password</td> <td> <input type="text"[(ngModel)] = "specificCustdata.Password"   > </td>
+        </tr>
+        <tr>
+            <td> Address</td> <td> <input type="text" [(ngModel)] = "specificCustdata.Address"  > </td>
+        </tr>
+        <tr>
+            <td> Bank</td> <td> <input type="text" [(ngModel)] = "specificCustdata.Bank"    > </td>
+        </tr>
+        <tr>
+            <td> SavingsAccountNumber</td> <td> <input type="text"[(ngModel)] = "specificCustdata.SavingsAccountNumber"  > </td>
+        </tr>
+        <tr>
+            <td> IFSCCode</td> <td> <input type="text" [(ngModel)] = "specificCustdata.IFSCCode"   > </td>
+        </tr>
+        <tr>
+            <td> ans1</td> <td> <input type="text"[(ngModel)] = "specificCustdata.ans1"   > </td>
+        </tr>
+        <tr>
+            <td> ans2</td> <td> <input type="text" [(ngModel)] = "specificCustdata.ans2"   > </td>
+        </tr>
+        <tr>
+            <td> ans3</td> <td> <input type="text"[(ngModel)] = "specificCustdata.ans3"  > </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><button (click)="Edit()">Edit</button></td> 
+        </tr>
+
+    </table>
+ </ng-container>
+
+ <ng-container *ngIf = "viewspecifcCustcard">
+
+    <table>
+        <tr>
+            <td> Card Number :</td> <td> &nbsp; {{specificCustCardData.CardNmber}}</td>
+        </tr>
+        <tr>
+            <td> Expiry Date :</td> <td> {{specificCustCardData.ExpiraDate |  date: 'yyyy/MM/dd' }} </td>
+        </tr>
+        <tr>
+            <td> Status :</td> 
+            <ng-conainer *ngIf ="specificCustCardData.Satus == 1">
+            <td> ACTIVE </td>
+        </ng-conainer>
+        
+            <ng-conainer *ngIf ="specificCustCardData.Satus == 0">
+            <td> INACTIVE </td>
+        </ng-conainer>
+        </tr>
+        <tr> <td>Limit:</td> 
+            <td> {{specificCustCardData.CardTypeMaster.limit}}</td>
+
+        </tr>
+        <tr>
+            <td> Balence :</td> <td> {{specificCustCardData.balence}} </td>
+        </tr>
+        <tr>
+            <td></td> <td><button (click) = "changecardstatus(specificCustCardData.Satus,specificCustCardData.CardNmber)">Change Card Status</button></td>
+        </tr>
+        
+    </table>
+
+
+
+ </ng-container>

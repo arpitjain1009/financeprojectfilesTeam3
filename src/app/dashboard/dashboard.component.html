@@ -37,12 +37,12 @@ CardType: {{i.CardTypeMaster.Type}} -->
 
         <span  *ngFor = "let i of card">
             <div align = "center">
-            <div id="Card" align="center">
+            <div id="Card" align="center" >
                 <div class="container">
                 <span id="icon">LFi</span> <br>
                 CardNumber:&nbsp;{{i.CardNmber}} <br>
                 Name:&nbsp;{{i.Name}} <br>
-                Valid Till: &nbsp; {{i.ExpiraDate}} <br>
+                Valid Till: &nbsp; {{i.ExpiraDate | date: 'yyyy/MM'}} <br>
                 CARDTYPE: &nbsp; {{i.CardTypeMaster.Type}}
                 </div>
 
@@ -71,13 +71,15 @@ CardType: {{i.CardTypeMaster.Type}} -->
                         <th>PRODUCT</th>
                         <th>DATE</th>
                         <th>AMOUNT PAID</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <ng-container *ngFor = "let j of i.CustomerPurchasals" >
-                 <tr>
+                 <tr align="center">
                         <td> {{j.ProductId}} </td>
-                         <td> <Date> {{j.PuchaseDate }} </Date> </td>
+                         <td> <Date> {{j.PuchaseDate | date: 'yyyy/MM/dd' }} </Date> </td>
                         <td> {{j.BillAmount}} </td> 
+                        <td> <Button>View EMI Schedule </Button></td>
                     </tr>
                 </ng-container>
             </table>
