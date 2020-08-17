@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Custservice } from 'src/services/custservices';
-import{Product} from 'src/models/product'
+import{Product} from 'src/models/product';
+import {Router} from '@angular/router';
 
 
 @Component({
@@ -12,11 +13,12 @@ export class ProductListComponent implements OnInit {
 
   prods
 
-  constructor(private customerServive:Custservice) { 
+  constructor(private customerServive:Custservice, private routes:Router) { 
   
   }
 
   ngOnInit(): void {
+    this.View();
    
   }
   View(){
@@ -34,6 +36,10 @@ export class ProductListComponent implements OnInit {
       console.log(item);
       this.customerServive.item = item;
       console.log(this.customerServive.item);
+
+      //Routing
+      this.routes.navigate(['/payementGateway']);
+
 
     }
 

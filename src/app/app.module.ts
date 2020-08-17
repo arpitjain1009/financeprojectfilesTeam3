@@ -5,8 +5,10 @@ import {RouterModule,Routes} from '@angular/router'
 
 import {HttpClientModule} from '@angular/common/http';
 import {Custservice} from '../services/custservices'
-import { AppRoutingModule } from './app-routing.module';
+import { AppRoutingModule,routingComponents } from './app-routing.module';
 import { AppComponent } from './app.component';
+
+//Declared in app-Routing.module.ts  
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { LoginComponent } from './login/login.component';
 import { Dashboard1Component } from './dashboard1/dashboard1.component';
@@ -19,14 +21,17 @@ import { DatePipe } from '@angular/common';
 
 var myRoutes:Routes= [
   {path:"Login",component:LoginComponent,children:[
-    {path:"Dasboard",component:DashboardComponent}
+    {path:"dasboard",component:DashboardComponent}
   ]}
-
+ 
 ]
 
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent, 
+    routingComponents,
+
+
     DashboardComponent,
     LoginComponent,
     Dashboard1Component,
@@ -39,8 +44,8 @@ var myRoutes:Routes= [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule,
-    RouterModule.forRoot(myRoutes)
+    RouterModule.forRoot(myRoutes),
+    FormsModule
   ],
   providers: [Custservice,DatePipe],
   bootstrap: [AppComponent]

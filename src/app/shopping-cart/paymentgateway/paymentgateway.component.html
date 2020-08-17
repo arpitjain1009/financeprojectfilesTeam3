@@ -1,6 +1,12 @@
 <p>paymentgateway works!</p>
-<button (click)="showitems()">Item</button>
-<br><br><br><br><br>
+<!-- <button (click)="showitems()">Item</button> -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+ 
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      
+      <a class=" nav navbar-nav navbar-right navbar-brand" routerLink ="/productList" routerLinkActive="active" >Logout</a>
+  </div>
+</nav>
 
 <span *ngIf = "read">
 
@@ -44,7 +50,7 @@ Please select the EMI Plan
 <button (click) = "paycheck()">Proceed To Pay</button>
 </span>
 <br><br><br><br><br>
-{{paysh|json}}
+<!-- {{paysh|json}} -->
 <br>
-{{purchasalid}}<br>
-{{paysche|json}}
+<!-- {{purchasalid}}<br>
+{{paysche|json}} -->

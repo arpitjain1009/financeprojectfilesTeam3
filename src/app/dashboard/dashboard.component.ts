@@ -22,7 +22,8 @@ cust:Variable;
 
   ngOnInit(): void {
     this.cust = this.customerService.customer;
-    this.ViewProducts();
+    this.fetch();
+   // this.ViewProducts();
   }
 
   fetch(){

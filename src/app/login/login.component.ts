@@ -44,6 +44,9 @@ export class LoginComponent implements OnInit {
         this.custservice.custcard = this.custservice.carddetails(this.cust.id);
         console.log(this.custservice.custcard);
         this.msg = "Loggedin"
+
+        //Routing
+        this.routes.navigate(['/dashboard']);
       } 
     }))
   }

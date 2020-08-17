@@ -8,6 +8,7 @@ import { THIS_EXPR, variable } from '@angular/compiler/src/output/output_ast';
 import { CONTENT_ATTR } from '@angular/compiler';
 import { DatePipe } from '@angular/common';
 import { Variable } from '@angular/compiler/src/render3/r3_ast';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-paymentgateway',
@@ -45,7 +46,7 @@ export class PaymentgatewayComponent implements OnInit {
 
   
 
-  constructor(private customerService:Custservice, private datepipe :DatePipe ) {
+  constructor(private customerService:Custservice, private datepipe :DatePipe, private routes:Router ) {
     this.paysh = [];
     this.list = [];
   
@@ -60,6 +61,7 @@ export class PaymentgatewayComponent implements OnInit {
    }
 
   ngOnInit(): void {
+    this.showitems();
   
   }
 
@@ -72,6 +74,7 @@ export class PaymentgatewayComponent implements OnInit {
 
     if(this.customerService.custcard==undefined){
       alert("Please Log in Process the payement")
+      this.routes.navigate(['/login']);
     }
     else{
       console.log(this.purchasal);
