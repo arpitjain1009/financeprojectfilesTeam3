@@ -15,6 +15,8 @@ import { PaymentgatewayComponent } from './shopping-cart/paymentgateway/paymentg
 import { ProductItemComponent } from './shopping-cart/product-list/product-item/product-item.component';
 import { ProductListComponent } from './shopping-cart/product-list/product-list.component';
 
+import { DatePipe } from '@angular/common';
+
 var myRoutes:Routes= [
   {path:"Login",component:LoginComponent,children:[
     {path:"Dasboard",component:DashboardComponent}
@@ -40,7 +42,7 @@ var myRoutes:Routes= [
     FormsModule,
     RouterModule.forRoot(myRoutes)
   ],
-  providers: [Custservice],
+  providers: [Custservice,DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

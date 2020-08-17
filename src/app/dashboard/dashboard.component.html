@@ -25,8 +25,8 @@ CardType: {{i.CardTypeMaster.Type}} -->
         <section class="container" style="border:1px solid #cecece;"  >
             <br>
 
-            <span  *ngFor = "let i of card">
-
+        <span  *ngFor = "let i of card">
+            <div align = "center">
             <div id="Card" align="center">
                 <div class="container">
                 <span id="icon">LFi</span> <br>
@@ -43,32 +43,36 @@ CardType: {{i.CardTypeMaster.Type}} -->
                 <span align="Center">DEACTIVATED</span>
             </div>
             </div>
+        </div>
 
             <br>
             Totoal Crdit: {{i.CardTypeMaster.limit}} <br>
             Credit Used: {{(i.CardTypeMaster.limit)- (i.balence)}} <br>
             Remaining Credit:  {{i.balence}}  <br>
-        </span>
+       
 
             <h5 align="Center">Products Purchased</h5>
 
             Recent Transaction:<br><br>
 
-            <table class="table">
+            <table  class="table">
                 <thead class="thead-dark">
-                    <tr>
+                    <tr align="center">
                         <th>PRODUCT</th>
                         <th>DATE</th>
                         <th>AMOUNT PAID</th>
                     </tr>
                 </thead>
-                <tr>
-                    <td>Test</td>
-                    <td>Test</td>
-                    <td>Test</td>
-                </tr>
-
+                <ng-container *ngFor = "let j of i.CustomerPurchasals" >
+                 <tr>
+                        <td> {{j.ProductId}} </td>
+                         <td> <Date> {{j.PuchaseDate }} </Date> </td>
+                        <td> {{j.BillAmount}} </td> 
+                    </tr>
+                </ng-container>
             </table>
+
+        </span>
 
         </section>
 </body>

@@ -27,20 +27,24 @@
         processing Fee: {{(10/100)*(itemselect.UnitPrice)}} <br>
     </div>
 
-    NetAmount:{{  ((5/100)*(itemselect.UnitPrice))  +  (itemselect.UnitPrice)*1  }} <br>
+  
+  NetAmount:{{ netAmount}} <br> <!--{{  ((5/100)*(itemselect.UnitPrice))  +  (itemselect.UnitPrice)*1  }} <br> -->
+    Aailable Balence:{{availBalence}}
     <hr>
 </div>
 
 Please select the EMI Plan 
 <select [(ngModel)] = "payplan" >
     <option></option>
-  <option *ngFor = "let p of plans" value="{{p.id}}" >{{p.data}} </option>
+  <option *ngFor = "let p of plans" value="{{p.id}}">
+    {{p.data}}</option>
 </select> <br> <br>
 
 
-<button (click) = "pay()">Proceed To Pay</button>
+<button (click) = "paycheck()">Proceed To Pay</button>
 </span>
-
-
 <br><br><br><br><br>
-
+{{paysh|json}}
+<br>
+{{purchasalid}}<br>
+{{paysche|json}}

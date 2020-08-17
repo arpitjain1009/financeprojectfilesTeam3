@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Custservice } from 'src/services/custservices';
 import { Variable } from '@angular/compiler/src/render3/r3_ast';
+import { DatePipe } from '@angular/common';
 
 
 @Component({
@@ -12,14 +13,16 @@ export class DashboardComponent implements OnInit {
 
  custdata;
  card;
+ ExpiryDate:Date;
 cust:Variable;
 
-  constructor(private customerService:Custservice) { 
+  constructor(private customerService:Custservice, private datepipe :DatePipe) { 
    
   }
 
   ngOnInit(): void {
     this.cust = this.customerService.customer;
+    this.ViewProducts();
   }
 
   fetch(){
@@ -37,6 +40,7 @@ cust:Variable;
   this.customerService.custcard.subscribe((data1=>{
   this.card=   data1; //Carddetails with customerMaster, CardTypeMaster,CardDetails
     console.log(this.card)
+    console.log("ExpirayDate"+this.ExpiryDate);
   }))
   }
   ViewProducts(){

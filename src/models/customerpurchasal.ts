@@ -3,7 +3,7 @@ export class CustomerPurchasal{
   CardNumber:number;
   PayementPlan:number;
   ProductId:number;
-  PurchaseDate:Date;
+  PurchaseDate:number;
   BillAmount:number;
   ProcessingFee:number;
   NetAmount:number
