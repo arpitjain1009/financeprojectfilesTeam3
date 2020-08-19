@@ -21,6 +21,15 @@ import { ProductListComponent } from './shopping-cart/product-list/product-list.
 import { DatePipe } from '@angular/common';
 import { AdmindashboardComponent } from './admindashboard/admindashboard.component';
 import { AdminloginComponent } from './adminlogin/adminlogin.component';
+import { SecurityComponent } from './security/security.component';
+import { ResetComponent } from './reset/reset.component';
+import { GeneratecardnumberComponent } from './generatecardnumber/generatecardnumber.component';
+
+import {RegisterService} from 'src/services/registerservice';
+import {UploadDocService} from 'src/services/uploadDocservice';
+import { RegisterUserComponent } from './register-user/register-user.component';
+import { RegistrationFeeComponent } from './registration-fee/registration-fee.component';
+import { UploadDocComponent } from './upload-doc/upload-doc.component';
 
 var myRoutes:Routes= [
   {path:"Login",component:LoginComponent,children:[
@@ -43,7 +52,13 @@ var myRoutes:Routes= [
     ProductItemComponent,
     ProductListComponent,
     AdmindashboardComponent,
-    AdminloginComponent
+    AdminloginComponent,
+    SecurityComponent,
+    ResetComponent,
+    GeneratecardnumberComponent,
+    RegisterUserComponent,
+    RegistrationFeeComponent,
+    UploadDocComponent
   ],
   imports: [
     BrowserModule,
@@ -52,7 +67,7 @@ var myRoutes:Routes= [
     RouterModule.forRoot(myRoutes),
     FormsModule
   ],
-  providers: [Custservice,DatePipe,AdminService],
+  providers: [Custservice,DatePipe,AdminService,RegisterService,UploadDocService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

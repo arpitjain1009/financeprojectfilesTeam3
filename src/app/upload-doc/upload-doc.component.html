@@ -1,0 +1,88 @@
+<!-- <p>upload-doc works!</p>
+<div class="upload">
+<form name="form" #form="ngForm"  (ngSubmit)="OnSubmit(Cid,Did,Image)">
+<div class="customer">
+Enter UserName:    <input type="text" #Cid>
+<button type="submit" (click)="fetchUser(Cid.value)">Submit</button>
+</div>
+<div class="doc">
+  <label for="documentName" > Choose a Document to upload:</label>
+    <select name="documentName" #Did="ngModel" id="docs" [(ngModel)]="ddlDocName" >
+        <option value=" ">
+            ---Select Document Type---
+        </option>
+        <option *ngFor="let name of DocName" [value]="name.id">{{name.Name}}</option> -->
+        <!-- <option value="Adhaar">Adhaar Card</option>
+        <option value="PAN">PAN Card</option>
+        <option value="Voter">VoterId Card</option> -->
+    <!-- </select> -->
+    <!-- <input  value=" Document id: {{this.ddlDocName}}" > -->
+<!-- </div>
+
+<div class="file">
+    <img [src]="imageUrl"  style="width: 300px;height: 200px;">
+    <input type="file" #Image id="myImage" (change)="handleFile($event.target.files)">
+    <br/>
+   <button  type="submit" > Submit</button> -->
+   <!-- <p *ngIf="uploadsuccess">
+    Doc uploaded!
+    <button (click)="OnClickButton()" >Proceed</button> -->
+<!-- </p> -->
+<!-- </div>
+</form>
+</div> -->
+
+<!--Styled Document-->
+
+<div class="main">
+    
+    <div class="upload">
+    <form name="form" #form="ngForm"  (ngSubmit)="OnSubmit(Cid,Did,Image)">
+        <br/><br/>
+    <div class="customer form-group card-body"  align ="center">
+    Enter Username:   
+    
+    
+    <!-- <input type="text" #Cid> -->
+    <input type="text" #Cid class="ques form-control"   [(ngModel)]="Username" name="username" #username="ngModel"
+        appValidateUserName required placeholder="username">
+ 
+        <span class="text-danger" style="color:rgb(175, 30, 30);"
+        *ngIf="(username.touched || form.submitted) && username.errors?.required">
+        <br/>
+                 *UserName is required
+        </span>
+    <br/>
+    <br/>
+    <button class="registerbtn" (click)="fetchUser(Cid.value)">Click to Add</button>
+    </div>
+    <br/>
+    <div class="doc">
+        
+      <label for="documentName" align ="center"> Choose a Document to upload:</label><br/>
+        <select name="documentName" #Did="ngModel" id="docs" [(ngModel)]="ddlDocName" >
+            <option value=" ">
+                ---Select Document Type---
+            </option>
+            <option *ngFor="let name of DocName" [value]="name.id">{{name.Name}}</option>
+            <!-- <option value="Adhaar">Adhaar Card</option>
+            <option value="PAN">PAN Card</option>
+            <option value="Voter">VoterId Card</option> -->
+        </select>
+        <!-- <input  value=" Document id: {{this.ddlDocName}}" > -->
+    </div>
+     
+    <div class="file">
+        <img [src]="imageUrl"  style="width: 300px;height: 200px;">
+        <input type="file" #Image id="myImage" (change)="handleFile($event.target.files)">
+        <br/>
+       <button class="registerbtn1"> Submit</button>
+       <!-- <p *ngIf="uploadsuccess">
+        Doc uploaded!
+        <button (click)="OnClickButton()" >Proceed</button> -->
+    <!-- </p> -->
+    </div>
+    </form>
+    </div>
+    
+    </div>

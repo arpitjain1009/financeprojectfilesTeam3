@@ -1,7 +1,4 @@
-<p>dashboard works!</p>
-<!-- {{custdata}}
-{{card}} -->
-<!-- <h6>custdata</h6> -->
+
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
  
@@ -32,40 +29,40 @@ CardType: {{i.CardTypeMaster.Type}} -->
 <body>
 <br><br><br>
 <!-- <h2>DashBoard</h2> -->
-        <section class="container" style="border:1px solid #cecece;"  >
+        <section class="container shadow-lg p-3 mb-5 bg-white rounded" style="border:1px solid #cecece;"  >
             <br>
 
         <span  *ngFor = "let i of card">
             <div align = "center">
-            <div id="Card" align="center" >
+            <div id="Card" align="center" class="shadow-lg p-3 mb-5 bg-white rounded">
                 <div class="container">
                 <span id="icon">LFi</span> <br>
-                CardNumber:&nbsp;{{i.CardNmber}} <br>
+                CardNumber:&nbsp;{{i.CardNmber}}  <br>
                 Name:&nbsp;{{i.Name}} <br>
                 Valid Till: &nbsp; {{i.ExpiraDate | date: 'yyyy/MM'}} <br>
                 CARDTYPE: &nbsp; {{i.CardTypeMaster.Type}}
                 </div>
 
             <div id="status-act" *ngIf = "i.Satus == 1" >
-                <span align="Center">ACTIVATED</span>
+                <span align="Center">ACTIVE</span>
             </div>
             <div id="status-deact" *ngIf = "i.Satus == 0">
-                <span align="Center">DEACTIVATED</span>
+                <span align="Center">INACTIVE</span>
             </div>
             </div>
         </div>
 
             <br>
-            Totoal Crdit: {{i.CardTypeMaster.limit}} <br>
-            Credit Used: {{(i.CardTypeMaster.limit)- (i.balence)}} <br>
-            Remaining Credit:  {{i.balence}}  <br>
+            Totoal Crdit: {{i.CardTypeMaster.limit}} &#8377;<br>
+            Credit Used: {{(i.CardTypeMaster.limit)- (i.balence)}} &#8377;<br>
+            Remaining Credit:  {{i.balence}} &#8377; <br>
        
 
             <h5 align="Center">Products Purchased</h5>
 
             Recent Transaction:<br><br>
 
-            <table  class="table">
+            <table  class="table shadow p-3 mb-5 bg-white rounded ">
                 <thead class="thead-dark">
                     <tr align="center">
                         <th>PRODUCT</th>
@@ -78,8 +75,8 @@ CardType: {{i.CardTypeMaster.Type}} -->
                  <tr align="center">
                         <td> {{j.ProductId}} </td>
                          <td> <Date> {{j.PuchaseDate | date: 'yyyy/MM/dd' }} </Date> </td>
-                        <td> {{j.BillAmount}} </td> 
-                        <td> <Button>View EMI Schedule </Button></td>
+                        <td> {{j.BillAmount}} &#8377; </td> 
+                        <!-- <td> <Button>View EMI Schedule </Button></td> -->
                     </tr>
                 </ng-container>
             </table>
@@ -87,4 +84,6 @@ CardType: {{i.CardTypeMaster.Type}} -->
         </span>
 
         </section>
+
+        <br><br><br>
 </body>

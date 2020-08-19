@@ -12,8 +12,8 @@ import {Customer} from 'src/models/customer';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  Username:string = "krishna";
-  Password:string="1234";
+  Username:string ;
+  Password:string;
   msg:String = ""
 
  // cust:Customer = null;
@@ -29,6 +29,7 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
   Login(){
+    console.log(this.Username+ this.Password);
     this.custservice.customer = this.custservice.login(this.Username,this.Password);
 
     this.custservice.customer.subscribe((data=>{

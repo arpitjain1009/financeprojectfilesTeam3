@@ -1,0 +1,19 @@
+.container{
+    position :relative;
+    
+}
+p{
+    text-align : center;
+    margin-top: 0%;
+    padding-top: 0%;
+}
+ 
+button{
+    text-align :center;
+}
+body{ background-color: #E5E2E1;}
+ 
+.product-grid4,.product-grid4 .product-image4{position:relative}
+*{
+    box-sizing: border-box;
+   }

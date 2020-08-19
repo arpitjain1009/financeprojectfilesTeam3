@@ -111,8 +111,17 @@ export class PaymentgatewayComponent implements OnInit {
   }
 
   paycheck(){
-    if(this.carddata[0].balence >= this.netAmount){
+    if(this.carddata[0].balence >= this.netAmount)
+    {
+      if(this.carddata[0].Satus == 1)
+      {
       this.pay()
+      }
+      else if(this.carddata[0].Satus == 0){
+        alert("Card Status is InActive");
+        this.routes.navigate(['/dashboard']);
+
+      }
     }
     else{
       alert ("In Sufficient Balence. Cannot Proceed the payement")
@@ -165,7 +174,7 @@ export class PaymentgatewayComponent implements OnInit {
 
     
    this.date = new Date();
-  // console.log(this.date);
+   // console.log(this.date);
 
     for(let j=0;j<this.Duration;j++){
       this.date.setDate(this.date.getDate()+30);
@@ -173,6 +182,8 @@ export class PaymentgatewayComponent implements OnInit {
       this.newdate = this.datepipe.transform(this.newdate, 'yyyy-MM-dd') // setting the requred format
       this.postdate(this.newdate);
     }
+
+   
   }
  
   postdate(d:Date){
@@ -191,6 +202,7 @@ export class PaymentgatewayComponent implements OnInit {
   })
 
   this.updateBalence();
+ 
     
   }
 
@@ -214,8 +226,14 @@ export class PaymentgatewayComponent implements OnInit {
     this.customerService.updatebalence(this.availBalence,this.carddata[0].CardNmber,this.paysche).subscribe((data2)=>{
       console.log("Balence Upadated"+data2);
     })
+  
+    this.Done()
+   
   }
-
-
+ 
+  Done(){
+    //alert("Transaction is Done");
+    this.routes.navigate(['/dashboard']);
+  }
 
 }

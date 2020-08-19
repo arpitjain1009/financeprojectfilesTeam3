@@ -1,0 +1,44 @@
+<!-- <p>registration-fee works!</p>
+<h3>Card Type:</h3><input type="radio" id="gold" #gold name="ctype" (click)="fetchCardType(gold.value)" value="gold">
+<label for="gold">Gold</label>
+<input type="radio" id="platinum" name="ctype" #platinum (click)="fetchCardType(platinum.value)" value="platinum">
+<label for="platinum">Platinum</label><br/>
+<div class="registration-fee">
+    <h2>Processing your registration fee:</h2>
+    <div *ngIf="cardMaster.type=='Gold'">
+     <h2>Rs.500</h2>  
+    </div>
+    <div *ngIf="cardMaster.type=='Platinum'">
+      <h2>Rs.1000</h2>  
+     </div>
+    <button type="submit" >Submit</button>
+</div> -->
+
+
+<!--Styled -->
+<div>  
+  <div class="container main">
+    <h3 align  = "center">Select Card Type:</h3>
+    <br/><br/><br/>
+<div class="hello">
+<input type="radio" id="gold" #gold name="ctype" (click)="fetchCardType(gold.value)"  value="gold">
+<label for="gold">Gold</label>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="radio" id="platinum" name="ctype" #platinum (click)="fetchCardType(platinum.value)"  value="platinum">
+<label for="platinum">Platinum</label><br/>
+</div>
+<br/><br/>
+<div class="registration-fee">
+    <h4 align  = "center">Your registration fee:</h4>
+    <div *ngIf="cardMaster.type=='Gold'">
+        <h5 style="text-align :start;">Rs.500 for Gold Card</h5>
+    </div>
+    <div  *ngIf="cardMaster.type=='Platinum'">
+        <h5>Rs.1000 for Platinum Card</h5>
+    </div>       
+
+<br/>
+</div>
+<button class="registerbtn" routerLink ="/Generatecard" >Submit</button>
+  </div>
+  </div>   

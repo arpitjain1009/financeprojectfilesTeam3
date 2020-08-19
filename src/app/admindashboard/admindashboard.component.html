@@ -1,25 +1,29 @@
 <p>admindashboard works!</p>
-<table class="table">
-
+<div class="container-fluid">
+<table class="table" >
+    <thead class="thead-dark">
     <tr>
         <th> Cust Id</th>
         <th> Cust Name</th>
         <th> </th>
         <th> </th>
     </tr>
+    </thead>
     <ng-container *ngFor = "let i of custData" >
     <tr>
         <td> {{i.id}} </td>
         <td>{{i.FirstName}} &nbsp; {{ i.LastName}} </td>
-        <td> <button (click) = "userdate(i.id)">Fetch User Data & Update</button></td>
-        <td> <button (click) = "usercarddata(i.id)"> Fetch card Data & Update</button> </td>
+        <td> <button (click) = "userdate(i.id)" class = "btn btn-secondary">Fetch User Data & Update</button></td>
+        <td> <button (click) = "usercarddata(i.id)" class="btn btn-secondary"> Fetch card Data & Update</button> </td>
     </tr>
     </ng-container>
 </table>
-
+</div>
+<br><br>
+<div class="card custdata"   >
 
 <ng-container *ngIf = "viewspecificCustdata">
-    <table>
+    <table >
         <tr>
             <td> Id</td> <td> <input type="text" [(ngModel)] = "specificCustdata.id"  readonly>    </td>
         </tr>
@@ -75,6 +79,8 @@
 
     </table>
  </ng-container>
+</div>
+<div class="card custdata"   >
 
  <ng-container *ngIf = "viewspecifcCustcard">
 
@@ -107,7 +113,9 @@
         </tr>
         
     </table>
-
-
-
+    
  </ng-container>
+</div>
+
+
+

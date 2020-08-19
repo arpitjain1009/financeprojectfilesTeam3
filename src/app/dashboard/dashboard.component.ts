@@ -15,6 +15,7 @@ export class DashboardComponent implements OnInit {
  card;
  ExpiryDate:Date;
 cust:Variable;
+ Name;
 
   constructor(private customerService:Custservice, private datepipe :DatePipe) { 
    
@@ -23,7 +24,7 @@ cust:Variable;
   ngOnInit(): void {
     this.cust = this.customerService.customer;
     this.fetch();
-   // this.ViewProducts();
+    //this.ViewProducts();
   }
 
   fetch(){
@@ -40,16 +41,21 @@ cust:Variable;
 
   this.customerService.custcard.subscribe((data1=>{
   this.card=   data1; //Carddetails with customerMaster, CardTypeMaster,CardDetails
-    console.log(this.card)
+    console.log(data1);
+  console.log(this.card)
+    this.Name = data1[0].Name;
     console.log("ExpirayDate"+this.ExpiryDate);
   }))
   }
   ViewProducts(){
+   var element;
     this.customerService.products =this.customerService.getProducts();
     console.log(this.customerService.products);
 
     this.customerService.products.subscribe((data=>{
      console.log(data)
+     element = data.Where((d) =>d.id = 1 )
+     console.log(element)
     }))
 
   }

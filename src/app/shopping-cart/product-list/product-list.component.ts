@@ -14,10 +14,12 @@ export class ProductListComponent implements OnInit {
   prods
 
   constructor(private customerServive:Custservice, private routes:Router) { 
+
   
   }
 
   ngOnInit(): void {
+    
     this.View();
    
   }

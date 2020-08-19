@@ -1,5 +1,10 @@
-<p>adminlogin works!</p>
-
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">  
+    <img width="70px" height="50px"src="https://as2.ftcdn.net/jpg/02/72/10/77/500_F_272107701_4hCMMzS29094hxUXtSOxwxdaJi2xZVdT.jpg" alt="Italian Trulli">
+    &nbsp;&nbsp;
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    </div>
+  </nav>
+<!-- 
 <table>
     <tr>
         <td>UserName</td>
@@ -11,5 +16,56 @@
     </tr>
     <tr><td><button (click)="Login()">Login</button></td></tr>
 </table>
+<br> -->
+
+
+<!------>
 <br>
-{{msg}}
+
+<div class="main">    
+    <div class="container">
+      <div class="row">
+          <div class="col-md-8 mx-auto">
+              <div class="card">
+                  <div class="card-header">
+                      <h3 >Admin Login Form</h3>
+                  </div>
+                  <div class="card-body">
+                      <form class="form" #registerForm="ngForm"
+                          (ngSubmit)="registerForm.form.valid" novalidate>
+                          
+                          <div class="form-group">
+                              <label>User Name</label>
+                              <input type="text" class="form-control" [(ngModel)]="Username" name="username"
+                                  #username="ngModel" appValidateUserName required>
+                              <span class="text-danger"
+                                  *ngIf="(username.touched || registerForm.submitted) && username.errors?.required">
+                                  User Name is required
+                              </span>
+                              <span class="text-danger" *ngIf="username.touched && username.errors?.userNameNotAvailable">
+                                  User Name not available
+                              </span>
+                          </div>
+                          <div class="form-group">
+                              <label>Password</label>
+                              <input type="password" class="form-control" [(ngModel)]="Password" name="password"
+                                  #password="ngModel" appPasswordPattern required>
+                              <span class="text-danger"
+                                  *ngIf="(password.touched || registerForm.submitted) && password.errors?.required">
+                                  Password is required
+                              </span>
+                          </div>
+                          <div class="form-group">
+                              <button (click)="Login()" type="submit" class="btn btn-primary">Login</button>
+                          </div>
+                      </form>
+                  </div>
+              </div>
+              
+          </div>
+      </div>
+    </div>
+    
+    
+    
+    </div>

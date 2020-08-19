@@ -1,7 +1,8 @@
-<p>product-list works!</p>
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
- 
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">  
+  <img width="70px" height="50px"src="https://as2.ftcdn.net/jpg/02/72/10/77/500_F_272107701_4hCMMzS29094hxUXtSOxwxdaJi2xZVdT.jpg" alt="Italian Trulli">
+  &nbsp;&nbsp;
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <a class="glyphicon glyphicon-log-in" class="navbar-brand"  routerLink ="/login" routerLinkActive="active">Login</a>
       <a class="glyphicon glyphicon-log-in" class="navbar-brand"  routerLink ="/adminLogin" routerLinkActive="active">Admin Login</a>
@@ -10,7 +11,6 @@
 </nav>
 <!-- <button (click)="View()">Viewprods</button><br><br> -->
 
-<span *ngFor="let p of prods ">
     
    <!-- Name: {{p.Name}}<br>
    stockLeft    {{p.stock}}<br>
@@ -18,10 +18,13 @@
    Price {{p.UnitPrice}}<br>
 ProductId    {{p.id}}<br>
     imageURl    {{p.images1}}<br>
-    Proddesc {{p.proddesc}} -->
+    Proddesc {{p.proddesc}} 
 
-</span>
-<span>
+ </span>-->
+  
+
+<!-- 
+<span class="container">
 <span *ngFor="let p of prods ">
 <div class="card mb-4 shadow-sm">
     <img width="200px" height="100px" [src]="p.images1" alt="Image not available"/>
@@ -40,4 +43,52 @@ ProductId    {{p.id}}<br>
     </div>
   </div>
   </span>
-</span>
+</span>   -->
+
+<body>
+ 
+  <div class="container">
+  <span *ngFor="let p of prods ">
+      <div class="row">
+        <div class=" data col-xs-12 col-sm-5">
+            <img float="left"class="img-thumbnail" width="300px" height="100px" [src]="p.images" alt="Image not available"/>
+        </div>
+        <div class="row">
+          <table class=" data table">
+            <thead>
+              <tr>
+                <th scope="col">Product Name</th>
+                <th scope="col">Product price</th>
+                <th scope="col">Product Desc</th>
+                
+            </thead>
+            <tbody>
+              <tr>
+                
+                <td><p class="card-text">{{ p.Name }}</p></td>
+                <td><p class="card-text">
+                  <strong>{{ p.UnitPrice | currency:'INR' }}</strong>
+                </p></td>
+                <td><p class="card-text">{{p.proddesc}}</p></td>
+              </tr>
+            </tbody>
+            <tbody>
+              <tr>
+                <td></td>
+                <td><div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group" class="col-md-12 text-center">
+                    <button type="button" class="btn btn-sm btn-primary product-btn" (click)="buy(p)">BUY</button> 
+                  </div>
+                </div> </td>
+              </tr>
+            </tbody>
+          </table>
+          
+            
+        </div>  
+        
+      </div>
+      <hr style="height:2px;border-width:0;color:black;background-color:black">
+  </span>
+  </div>
+  </body>
